@@ -86,7 +86,7 @@ class ImageGallerySaverPlugin : FlutterPlugin, MethodCallHandler {
                 put(
                     MediaStore.MediaColumns.RELATIVE_PATH, when {
                         isVideo -> Environment.DIRECTORY_MOVIES
-                        else -> Environment.DIRECTORY_PICTURES
+                        else -> Environment.DIRECTORY_DCIM
                     }
                 )
                 if (!TextUtils.isEmpty(mimeType)) {
@@ -103,7 +103,7 @@ class ImageGallerySaverPlugin : FlutterPlugin, MethodCallHandler {
             val storePath =
                 Environment.getExternalStoragePublicDirectory(when {
                     isVideo -> Environment.DIRECTORY_MOVIES
-                    else -> Environment.DIRECTORY_PICTURES
+                    else -> Environment.DIRECTORY_DCIM
                 }).absolutePath
             val appDir = File(storePath).apply {
                 if (!exists()) {
