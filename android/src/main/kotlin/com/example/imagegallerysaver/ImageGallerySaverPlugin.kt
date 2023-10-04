@@ -72,6 +72,7 @@ class ImageGallerySaverPlugin : FlutterPlugin, MethodCallHandler {
             val uri =
                 when {
                     isVideo -> MediaStore.Video.Media.EXTERNAL_CONTENT_URI
+                    isAudio -> MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
                     else -> MediaStore.Images.Media.EXTERNAL_CONTENT_URI
                 }
 
@@ -82,7 +83,7 @@ class ImageGallerySaverPlugin : FlutterPlugin, MethodCallHandler {
                         MediaStore.MediaColumns.RELATIVE_PATH,
                         when {
                             isVideo -> Environment.DIRECTORY_DCIM
-                            isAudio -> Environment.DIRECTORY_DOWNLOADS
+                            isAudio -> Environment.DIRECTORY_DCIM
                             else -> Environment.DIRECTORY_DCIM
                         }
                     )
@@ -90,6 +91,7 @@ class ImageGallerySaverPlugin : FlutterPlugin, MethodCallHandler {
                         put(
                             when {
                                 isVideo -> MediaStore.Video.Media.MIME_TYPE
+                                isAudio -> MediaStore.Audio.Media.MIME_TYPE
                                 else -> MediaStore.Images.Media.MIME_TYPE
                             },
                             mimeType
@@ -104,7 +106,7 @@ class ImageGallerySaverPlugin : FlutterPlugin, MethodCallHandler {
                 Environment.getExternalStoragePublicDirectory(
                         when {
                             isVideo -> Environment.DIRECTORY_DCIM
-                            isAudio -> Environment.DIRECTORY_DOWNLOADS
+                            isAudio -> Environment.DIRECTORY_DCIM
                             else -> Environment.DIRECTORY_DCIM
                         }
                     )
