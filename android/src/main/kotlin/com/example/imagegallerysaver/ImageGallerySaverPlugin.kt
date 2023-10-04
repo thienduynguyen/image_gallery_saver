@@ -83,7 +83,7 @@ class ImageGallerySaverPlugin : FlutterPlugin, MethodCallHandler {
                         MediaStore.MediaColumns.RELATIVE_PATH,
                         when {
                             isVideo -> Environment.DIRECTORY_DCIM
-                            isAudio -> Environment.DIRECTORY_DCIM
+                            isAudio -> Environment.DIRECTORY_MUSIC
                             else -> Environment.DIRECTORY_DCIM
                         }
                     )
@@ -106,7 +106,7 @@ class ImageGallerySaverPlugin : FlutterPlugin, MethodCallHandler {
                 Environment.getExternalStoragePublicDirectory(
                         when {
                             isVideo -> Environment.DIRECTORY_DCIM
-                            isAudio -> Environment.DIRECTORY_DCIM
+                            isAudio -> Environment.DIRECTORY_MUSIC
                             else -> Environment.DIRECTORY_DCIM
                         }
                     )
